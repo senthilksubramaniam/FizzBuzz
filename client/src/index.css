@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(#303b37, #1a1f1d);
+  color: #e1eeeb;
+  min-height: 100vh;
+}
+
+#header {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+
+#header img {
+  width: 9rem;
+  height: 5rem;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+#header h1 {
+  font-size: 1.5rem;
+}
+
+#user-input {
+  padding: 1rem;
+  max-width: 30rem;
+  margin: 2rem auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #307e6c, #2b996d);
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+
+#user-input label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#user-input input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #76c0ae;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #c2e9e0;
+  font-size: 1rem;
+}
+
+#result {
+  max-width: 50rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  table-layout: fixed;
+  border-spacing: 1rem;
+  text-align: right;
+}
+
+#result thead {
+  font-size: 0.7rem;
+  color: #83e6c0;
+}
+
+#result tbody {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.85rem;
+  color: #c2e9e0;
+}
+
+.center {
+  text-align: center;
+}
+
+#fizz-buzz{  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:1rem; 
+}
+
+.right-panel{  
+  border: 1px solid #76c0ae;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  padding: 1rem;
+  color: #c2e9e0;
+  font-size: 1rem;
+  min-width: 35rem;
+  max-width: 35rem;
+  min-height: 47rem;
+}
+
+.align-center{
+  display: flex;
+  padding: 2rem;
+  justify-content:  center;
+}
+
+.game{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#left-panel{  
+  border: 1px solid #76c0ae;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #c2e9e0;
+  font-size: .7rem;
+  min-width: 10rem;
+  min-height: 40rem;
+  text-align: left;
+  padding-left:  2rem;
+  padding-top:  2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+.title{
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.selected{
+  display: block;
+  padding: .3rem;
+  width:6rem;
+  cursor: pointer;
+}
+.selected:active {
+  transform: translateY(3px); 
+}
+
+#introduction{  
+  font-size: 1rem;
+  min-width: 10rem;
+  min-height: 40rem;
+  text-align: justify;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+  padding: 1rem;
+}
+
+#introduction p{ 
+  padding: 0;
+  margin: 0; 
+}
+
+
+#game-button {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #c2e9e0;
+  background: radial-gradient(ellipse at center, #2b463f 10%, #41695f 70%, #2b463f 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-3px); 
+  box-shadow: 2px 2px 5px #c2e9e0, 
+              -2px -2px 5px #c2e9e0;
+}
+/* Click Effect */
+#game-button:active {
+  transform: translateY(3px); /* Press Down Effect */
+}
+
+#game-button_small {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #c2e9e0;
+  background: radial-gradient(ellipse at center, #2b463f 10%, #41695f 70%, #2b463f 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-3px); 
+  box-shadow: 2px 2px 5px #c2e9e0, 
+              -2px -2px 5px #c2e9e0;
+}
+/* Click Effect */
+#game-button_small:active {
+  transform: translateY(3px); /* Press Down Effect */
+}
+ 
+#create-game {
+  padding: 1rem;
+  max-width: 30rem;
+  margin: 2rem auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #307e6c, #2b996d);
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+#create-game label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#create-game p { 
+  margin-top: 4px; 
+}
+
+#create-game input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #76c0ae;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #c2e9e0;
+  font-size: 1rem;
+}
+
+.error {
+  width: 100%;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: rgb(146, 17, 17);
+  font-size: .7rem;
+  height: 1.5rem;
+  display: block;
+  margin-top: 5px;
+}
+
+#rules {
+  max-width: 50rem;
+  /* margin:  auto; */
+  padding: 1rem;
+  table-layout: fixed;
+  border-spacing: 1rem;
+  text-align: center;
+}
+
+#rules thead {
+  font-size: 0.7rem;
+  color: #83e6c0;
+}
+
+#rules tbody {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.85rem;
+  color: #c2e9e0;
+}
+
+#flex-row
+{
+  
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+
+.center {
+  text-align: center;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 50vh; */
+  background: radial-gradient(circle, #194637, #146d4f);
+  border-radius: 40px;
+}
+
+.timer-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px 10px;
+  border-radius: 45px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: white;
+  font-family: "Arial", sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.timer-number {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  animation: pop 0.5s ease-in-out infinite alternate;
+}
+
+.timer-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

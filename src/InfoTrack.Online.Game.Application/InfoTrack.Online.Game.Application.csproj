@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>InfoTrack.Online.Game.Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InfoTrack.Online.Game.Domain\InfoTrack.Online.Game.Domain.csproj" />
+    <ProjectReference Include="..\InfoTrack.Online.Game.Infrastructure\InfoTrack.Online.Game.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

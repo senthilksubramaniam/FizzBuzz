@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>InfoTrack.Online.Game.Test</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InfoTrack.Online.Game.Api\InfoTrack.Online.Game.Api.csproj" />
+    <ProjectReference Include="..\InfoTrack.Online.Game.Application\InfoTrack.Online.Game.Application.csproj" />
+    <ProjectReference Include="..\InfoTrack.Online.Game.Domain\InfoTrack.Online.Game.Domain.csproj" />
+    <ProjectReference Include="..\InfoTrack.Online.Game.Infrastructure\InfoTrack.Online.Game.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
