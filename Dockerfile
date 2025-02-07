@@ -8,11 +8,13 @@ WORKDIR /app
 ARG DATABASE_NAME
 ARG DATABASE_USER
 ARG DATABASE_PASSWORD
+ARG DB_HOST
 
 # Set these as environment variables inside the container
 ENV DATABASE_NAME=${DATABASE_NAME}
 ENV DATABASE_USER=${DATABASE_USER}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
+ENV DB_HOST=${DB_HOST}
 
 # Copy solution and restore dependencies
 COPY *.sln ./

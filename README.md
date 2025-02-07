@@ -53,6 +53,16 @@ To get a local copy up and running, follow these steps.
    cd client
    npm install
    ```
+6. After testing build the docker Image:
+   ```sh
+   cd ../
+   docker build --build-arg DATABASE_NAME=mydb --build-arg DATABASE_USER=myuser --build-arg DATABASE_PASSWORD=mypassword --build-arg DB_HOST=db -t myapi:latest .
+   ```
+7. Run the container:
+   ```sh
+   cd ../
+   docker build --build-arg DATABASE_NAME=mydb --build-arg DATABASE_USER=myuser --build-arg DATABASE_PASSWORD=mypassword --build-arg DB_HOST=db -t myapi:latest .
+   ```
 ## Usage
 
 1. Start the Api:
