@@ -32,7 +32,11 @@ public class Program
                                 .AllowAnyHeader());
         });
 
-
+        builder.Services.AddScoped(typeof(IAppLogger<>), typeof(AppLogger<>));
+        builder.Services.AddLogging(config =>
+        {
+            config.AddConsole();
+        });
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();

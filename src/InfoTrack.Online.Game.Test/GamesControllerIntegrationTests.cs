@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using InfoTrack.Online.Game.Application;
 using InfoTrack.Online.Game.Domain;
+using InfoTrack.Online.Game.Domain.DTO;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
@@ -37,8 +38,8 @@ public class GamesControllerIntegrationTests : IClassFixture<WebApplicationFacto
     public async Task GetGames_ReturnsOk_WithMockedGames()
     {
         // Arrrange
-        var games = new Game[] { new Game { Id = 1, Name = "FOOBOOLOO" ,Author="Author", Range = 100,TimeLimit=130,
-            Rules = new List<Rule>{ new Rule{DivisibleBy=2,Replacement="FOO",Score=10 } } } };
+        var games = new GameDTO[] { new GameDTO(1, "FOOBOOLOO", "Author", 130, 100, new List<RuleDTO> { new RuleDTO(2, 10, "FOO") }) };
+
         _mockGameService.Setup(s => s.GetGames()).ReturnsAsync(games);
 
         // Act
@@ -81,9 +82,11 @@ public class GamesControllerIntegrationTests : IClassFixture<WebApplicationFacto
             Author = "Author",
             Range = 100,
             TimeLimit = 130,
-            Rules = new List<Rule> { new Rule { DivisibleBy = 2, Replacement = "FOO", Score = 10 } }
+            Rules = new List<Rule> { new Rule { DivisibleBy=2,Score= 10,Replacement= "FOO" } }
         };
-        _mockGameService.Setup(s => s.CreateGame(It.IsAny<Game>())).ReturnsAsync(newGame);
+        var createdGame = new GameDTO(1, "FOOBOOLOO", "Author", 130, 100, new List<RuleDTO> { new RuleDTO(2, 10, "FOO") }
+);
+        _mockGameService.Setup(s => s.CreateGame(It.IsAny<Game>())).ReturnsAsync(createdGame);
 
         // Act
         var response = await _client.PostAsJsonAsync("/api/games", newGame);

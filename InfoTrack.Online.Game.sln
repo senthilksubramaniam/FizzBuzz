@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoTrack.Online.Game.Test"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoTrack.Online.Game.Api", "src\InfoTrack.Online.Game.Api\InfoTrack.Online.Game.Api.csproj", "{EFC40BA6-E7C6-396A-96B1-44C7EEFBBB6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoTrack.Online.Game.DataAccess", "src\InfoTrack.Online.Game.DataAccess\InfoTrack.Online.Game.DataAccess.csproj", "{2D8ACF21-4AAE-450A-BEB5-42301CF4C49E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EFC40BA6-E7C6-396A-96B1-44C7EEFBBB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFC40BA6-E7C6-396A-96B1-44C7EEFBBB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFC40BA6-E7C6-396A-96B1-44C7EEFBBB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8ACF21-4AAE-450A-BEB5-42301CF4C49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8ACF21-4AAE-450A-BEB5-42301CF4C49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8ACF21-4AAE-450A-BEB5-42301CF4C49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8ACF21-4AAE-450A-BEB5-42301CF4C49E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

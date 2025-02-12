@@ -1,6 +1,6 @@
 ﻿namespace InfoTrack.Online.Game.Domain
 {
-    public class Rule
+    public record Rule
     {
         public int DivisibleBy { get; set; }
         public int Score { get; set; }

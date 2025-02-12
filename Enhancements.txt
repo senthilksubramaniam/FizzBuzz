@@ -1,0 +1,2 @@
+1. Use context for the global state.
+2. Split CSS for each component.

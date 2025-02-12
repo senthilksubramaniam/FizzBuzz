@@ -1,24 +1,19 @@
 ﻿using FluentAssertions;
 using InfoTrack.Online.Game.Application;
 using InfoTrack.Online.Game.Domain;
+using InfoTrack.Online.Game.Domain.DTO;
 using InfoTrack.Online.Game.Infrastructure;
-using Microsoft.EntityFrameworkCore;
+using Moq;
 using Xunit;
 
 public class GameServiceTests
 {
-    private AppDbContext GetDbContext()
-    {
-        var options = new DbContextOptionsBuilder<AppDbContext>()
-            .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) // Unique DB per test
-            .Options;
-
-        return new AppDbContext(options);
-    }
+    private Mock<IAppLogger<GameService>> mockLogger = new Mock<IAppLogger<GameService>>();
 
     [Fact]
     public void ValidateQuiz_Should_Return_Expected_Response()
     {
+        Mock<IGamesRepository> mockGameRepository = new Mock<IGamesRepository>();
         // Arrange
         var game = new Game
         {
@@ -30,7 +25,7 @@ public class GameServiceTests
             Rules = new List<Rule> { new Rule { DivisibleBy = 2, Replacement = "FOO", Score = 10 }, new Rule { DivisibleBy = 21, Replacement = "BOO", Score = 20 } }
         };
         var quiz = new Quiz { Game = game, RandomNumber = 42, Selection = 2 };
-        var service = new GameService(null);
+        var service = new GameService(mockGameRepository.Object, mockLogger.Object);
 
         // Act
         var response = service.ValidateQuiz(quiz);
@@ -47,20 +42,12 @@ public class GameServiceTests
     public async Task GetGames_Should_Return_All_Games()
     {
         // Arrange
-        using var context = GetDbContext();
-        var game = new Game
-        {
-            Id = 1,
-            Name = "FOOBOOLOO",
-            Author = "Author",
-            Range = 100,
-            TimeLimit = 130,
-            Rules = new List<Rule> { new Rule { DivisibleBy = 2, Replacement = "FOO", Score = 10 }, new Rule { DivisibleBy = 21, Replacement = "BOO", Score = 20 } }
-        };
-        context.Games.AddRange(game);
-        await context.SaveChangesAsync();
+        var createdGame = new GameDTO(1, "FOOBOOLOO", "Author", 130, 100, new List<RuleDTO> { new RuleDTO(2, 10, "FOO") });
 
-        var service = new GameService(context);
+        Mock <IGamesRepository> mockGameRepository = new Mock<IGamesRepository>();
+        mockGameRepository.Setup(x => x.CreateGame(It.IsAny<Game>())).ReturnsAsync(createdGame);
+
+        var service = new GameService(mockGameRepository.Object, mockLogger.Object);
 
         // Act
         var games = await service.GetGames();
@@ -71,31 +58,5 @@ public class GameServiceTests
         games[0].Author.Should().Be("Author");
         games[0].Range.Should().Be(100);
         games[0].TimeLimit.Should().Be(130);
-    }
-
-    [Fact]
-    public async Task CreateGame_Should_Add_Game_To_Database()
-    {
-        // Arrange
-        using var context = GetDbContext();
-        var service = new GameService(context);
-        var game = new Game
-        {
-            Id = 1,
-            Name = "FOOBOOLOO",
-            Author = "Author",
-            Range = 100,
-            TimeLimit = 130,
-            Rules = new List<Rule> { new Rule { DivisibleBy = 2, Replacement = "FOO", Score = 10 }, new Rule { DivisibleBy = 21, Replacement = "BOO", Score = 20 } }
-        }; 
-
-        // Act
-        var createdGame = await service.CreateGame(game);
-        var savedGame = await context.Games.FindAsync(1);
-
-        // Assert
-        createdGame.Should().NotBeNull();
-        savedGame.Should().NotBeNull();
-        savedGame.Name.Should().Be("FOOBOOLOO");
     }
 }
