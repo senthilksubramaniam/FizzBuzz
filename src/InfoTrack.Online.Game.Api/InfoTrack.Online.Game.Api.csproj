@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InfoTrack.Online.Game.Application\InfoTrack.Online.Game.Application.csproj" />
+    <ProjectReference Include="..\InfoTrack.Online.Game.DataAccess\InfoTrack.Online.Game.DataAccess.csproj" />
     <ProjectReference Include="..\InfoTrack.Online.Game.Infrastructure\InfoTrack.Online.Game.Infrastructure.csproj" />
   </ItemGroup>
 

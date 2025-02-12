@@ -2,6 +2,7 @@ using InfoTrack.Online.Game.Application;
 using InfoTrack.Online.Game.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
+using InfoTrack.Online.Game.DataAccess;
 
 public class Program
 {
@@ -42,8 +43,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddTransient<IGameService, GameService>();
+        builder.Services.AddTransient<IGamesRepository, GamesRepository>();
 
-       var app = builder.Build();
+        var app = builder.Build();
 
         app.UseCors("AllowFrontend");
 
